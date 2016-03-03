@@ -1,0 +1,17 @@
+ASSUMPTIONS:
+1. Because the hails were generated uniformly over time and are so close to each other over time, the simulation operates on the hails one by one.
+2. A hail that is ignored get's place back into the pool of unassigned hails in random order.
+3. Cars/drivers can teleport because this simulation is only concerned with how long a driver takes to drive and how long a rider takes to talk in terms of Manhattan distances. Also, it is because this simulation is not concerned with traffic, collision, or routing.
+4. The units of time are aligned with a driver's speed, where 1 time unit = 1 block.
+5. Walking takes up 20 time units per block.
+
+
+CONCLUSIONS:
+1. The average time elapsed between hailing and pickup, for each hour of the run, does not vary that much. This is because at setup, driver and hailer locations are set up uniformly and random. Essentially, drivers and riders will travel uniformly and randomly during the simulation. In addition, the simulation's dispatching algorithm matches a hailer to the closest idle driver. Thus, it should be unlikely for a rider to be assigned a driver farther than 30 blocks (30 minutes) since on average, there is 1 driver per 10 blocks of area and the grid is fairly small. This would explain the fast pickup time and virtually no cancellations.
+2. Walking takes 20 times more time than driving, so the number of riders that would actually save time by walking would be very small, especially on a small grid. This would explain all of the 0's in "PERCENTAGE".
+
+
+STRANGE FINDINGS:
+1. Current, pickup, and dropoff locations of drivers and hailers are uniform and randomly distributed. Assignment of drivers and hailers are based on the closest available driver, which is why the coordinates of the driver and rider would look close together. What is strange though is how very close the coordinates of the driver and rider are. This would explain the small amount of time needed to pick up the rider. What's even more offputting is how often the pickup and dropoff locations of the hailer, randomly generated, are close together. This would lead to fast drop off times.
+2. Slowing down a car's speed would increase times.
+3. Having people walk faster would increase the number of riders who would walk to their location in less time than if they ubered.
